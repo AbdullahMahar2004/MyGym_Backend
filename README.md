@@ -171,9 +171,3 @@ MIT License
 - For production, update JWT secrets and consider using a real email service.
 
 ---
-
-## Contributing
-
-Pull requests and issues are welcome!
-
----
