@@ -159,12 +159,6 @@ dotnet test
 
 ---
 
-## License
-
-MIT License
-
----
-
 ## Notes
 
 - Email verification codes are printed to the console (no SMTP integration).
