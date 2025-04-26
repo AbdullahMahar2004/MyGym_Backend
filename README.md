@@ -32,7 +32,7 @@ MyGym_Backend is a robust backend API for managing gym memberships, plans, train
 - **Entity Framework Core** (SQLite)
 - **JWT Authentication**
 - **ASP.NET Identity**
-- **OpenAPI/Swagger** (in development mode)
+- **Postman** (in development mode)
 
 ---
 
