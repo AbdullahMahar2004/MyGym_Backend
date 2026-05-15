@@ -171,3 +171,36 @@ tr:hover td { background: #f8fafc; }
 .info-item { background: var(--bg); border-radius: var(--radius); padding: 1rem; }
 .info-label { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: .25rem; }
 .info-value { font-size: 1rem; font-weight: 600; }
+
+/* ─── Tablet ─────────────────────────────────────────────────────────────────*/
+@media (max-width: 1024px) {
+  .sidebar { width: 180px; }
+  .main-content { padding: 1.25rem; }
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  .dashboard { flex-direction: column; }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: .75rem;
+    gap: .25rem;
+  }
+  .sidebar h1 { width: 100%; margin-bottom: .25rem; font-size: 1rem; }
+  .sidebar button { flex: 1 1 auto; text-align: center; font-size: .8rem; padding: .4rem .5rem; }
+  .sidebar .logout { margin-top: 0; }
+
+  .main-content { padding: 1rem; }
+
+  .info-grid { grid-template-columns: 1fr; }
+
+  .card-wide { max-width: 100%; }
+
+  .modal { padding: 1.25rem; }
+
+  table { font-size: .8rem; }
+  th, td { padding: .5rem .6rem; }
+}
