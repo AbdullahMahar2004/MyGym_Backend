@@ -1,0 +1,26 @@
+{
+  "name": "mygym-services",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "auth-service",
+    "member-service",
+    "plan-service",
+    "trainer-service",
+    "notification-service",
+    "api-gateway"
+  ],
+  "scripts": {
+    "db:generate": "prisma generate --schema=schema.prisma",
+    "db:push": "prisma db push --schema=schema.prisma",
+    "db:seed": "node prisma/seed.js",
+    "dev:all": "concurrently \"npm run dev --workspace=api-gateway\" \"npm run dev --workspace=auth-service\" \"npm run dev --workspace=member-service\" \"npm run dev --workspace=plan-service\" \"npm run dev --workspace=trainer-service\" \"npm run dev --workspace=notification-service\""
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0",
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String         @id @default(uuid())
+  username          String         @unique
+  email             String         @unique
+  passwordHash      String
+  role              String         @default("Member")
+  notificationCount Int            @default(0)
+  notifications     Notification[]
+  member            Member?
+}
+
+model Member {
+  id              Int       @id @default(autoincrement())
+  userId          String?   @unique
+  user            User?     @relation(fields: [userId], references: [id])
+  name            String
+  email           String    @unique
+  phoneNumber     String    @unique
+  startDate       DateTime
+  endDate         DateTime
+  planId          Int
+  plan            Plan      @relation(fields: [planId], references: [id])
+  trainerId       Int?
+  trainer         Trainer?  @relation(fields: [trainerId], references: [id])
+  sessionCount    Int       @default(0)
+  freezeStartDate DateTime?
+  freezeEndDate   DateTime?
+  frozenDuration  Int?
+}
+
+model Plan {
+  id               Int      @id @default(autoincrement())
+  name             String
+  isSessional      Boolean  @default(false)
+  numberOfSessions Int      @default(-1)
+  duration         Int
+  price            Float
+  members          Member[]
+}
+
+model Trainer {
+  id             Int      @id @default(autoincrement())
+  name           String
+  phoneNumber    String
+  specialization String
+  members        Member[]
+}
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  content   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
