@@ -134,6 +134,12 @@ tr:hover td { background: #f8fafc; }
   z-index: 100; padding: 1rem;
 }
 .modal {
+  /* reset Bootstrap: it sets display:none, position:fixed, inset:0 */
+  display: block;
+  position: static;
+  inset: auto;
+  z-index: auto;
+  overflow: visible;
   background: var(--surface);
   border-radius: var(--radius);
   padding: 1.75rem;
@@ -141,7 +147,10 @@ tr:hover td { background: #f8fafc; }
   max-height: 90vh; overflow-y: auto;
 }
 .modal h2 { margin-bottom: 1.25rem; }
-.modal-footer { display: flex; gap: .75rem; justify-content: flex-end; margin-top: 1.25rem; }
+.modal-footer {
+  display: flex; gap: .75rem; justify-content: flex-end; margin-top: 1.25rem;
+  border-top: none; padding: 0; /* reset Bootstrap's border-top and padding */
+}
 
 .flex { display: flex; }
 .items-center { align-items: center; }
